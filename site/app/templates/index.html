@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="shortcut icon" href="https://www.clipartmax.com/png/middle/47-477493_blue-dot-clip-art-at-clker-blue-dot-icon-png.png"> -->
+  <title>Mine for Change</title>
+
+  <style>
+    * {
+      line-height: 1.5em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a,
+    a:visited {
+      color: rgb(10, 113, 176);
+      text-decoration: none;
+    }
+
+    code {
+      font-family: 'fira_coderegular', monospace;
+      color: #ff5252;
+      background-color: #212121;
+      border-radius: 25px;
+      padding: 2px 5px 2px 5px;
+      font-size: 115%;
+    }
+
+    header {
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1px;
+      background-color: #121212;
+      color: white;
+    }
+
+    h1 {
+      font-size: 3em;
+    }
+
+    html,
+    body {
+      background: #121212;
+      color: #fff;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+
+      overflow-x: auto;
+
+      font-family: 'Helvetica Neue', sans-serif;
+    }
+
+    section {
+      padding: 1em;
+      text-align: center;
+    }
+
+    .title {
+      font-size: 1.3em;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .title_lower {
+      font-size: 1.3em;
+      font-weight: bold;
+    }
+
+    .status_title {
+      font-size: 2.0em;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .mining {
+      font-size: 2.0em;
+      font-weight: bold;
+      text-transform: uppercase;
+      color:#4CAF50;
+    }
+
+    .not_mining {
+      font-size: 2.0em;
+      font-weight: bold;
+      text-transform: uppercase;
+      color:#E53935;
+    }
+
+    .cta {
+      background: #181a1b;
+    }
+
+    @media screen and (min-width: 1024px) {
+      section p {
+        /* padding: 1em 12em; */
+        margin: auto;
+        max-width: 48em;
+      }
+
+      section:not(.cta) p {
+        text-align: left;
+      }
+
+      section p:not(:last-of-type) {
+        margin-bottom: 1em;
+      }
+
+      section .title {
+        margin-bottom: 0.5em;
+      }
+    }
+
+    .block {
+      display: block;
+      width: 25%;
+      border: none;
+      background-color: #4CAF50;
+      padding: 14px 28px;
+      margin-left: 37.5%;
+      margin-right: 37.5%;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      border-radius: 15px;
+    }
+
+    #block_container {
+        text-align:center;
+    }
+    #block1, #block2 {
+        display:inline;
+    }
+
+    .select-css {
+      text-align: center;
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      color: #444;
+      line-height: 1.3;
+      padding: .6em 1.4em .5em .8em;
+      width: 25%;
+      margin-left: 37.5%;
+      margin-right: 37.5%;
+      box-sizing: border-box;
+      margin: auto;
+      border: 1px solid #aaa;
+      box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+      border-radius: .5em;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+      background-color: #fff;
+      background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+        linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+      background-repeat: no-repeat, repeat;
+      background-position: right .7em top 50%, 0 0;
+      background-size: .65em auto, 100%;
+    }
+    .select-css::-ms-expand {
+      display: none;
+    }
+    .select-css:hover {
+      border-color: #888;
+    }
+    .select-css:focus {
+      border-color: #aaa;
+      box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+      box-shadow: 0 0 0 3px -moz-mac-focusring;
+      color: #222;
+      outline: none;
+    }
+    .select-css option {
+      font-weight:normal;
+    }
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Mine for Change</h1>
+    <h2>Support a cause by donating CPU cycles.</h2>
+  </header>
+  <section class="cta">
+<!--Dropdown Menu-->
+    <form class="form-inline" method="POST" action="/">
+      <div class="form-group">
+        <div class="input-group">
+          <select name="org_select" class="select-css">
+            <br>
+            {% for o in organizations %}
+              <option value="{{ o.name }}">{{ o.name }}</option>
+            {% endfor %}
+          </select>
+<!--Dropdown Menu-->
+        </div>
+      </div>
+<!--Start Button-->
+      <br>
+      <button type="submit" class="block">{{ button_name }}</button>
+<!--Start Button-->
+      </div>
+    </form>
+    {% if status == "MINING - Keep this page open" %}
+      <br>
+      <div class="title_lower">Monero Address:</div>
+      <code>{{ address }}</code>
+    {% endif %}
+  </section>
+  <main>
+    <section>
+<!--Status Line-->
+      <div id="block_container">
+      <div id="block1" class="status_title">Status: </div>
+      {% if status == "MINING - Keep this page open" %}
+        <div id="block2" class="mining">{{ status }}</div>
+      {% else %}
+        <div id="block2" class="not_mining">{{ status }}</div>
+      {% endif %}
+      <br>
+      <br>
+<!--Status Line-->
+      <div class="title">What is Mine for Change?</div>
+      <p>
+        Mine for Change is project to raise funds in the form
+        of cryptocurrency, for various non-profit and charity organizations.
+      </p>
+
+      <p>
+        Through the cummulative impact of volunteering users, great support
+        and change can be made. As long as this site is open in a tab, or window
+        of your device, you are contributing to your selected cause.
+      </p>
+    </section>
+    <section>
+      <div class="title">
+        How do I use this?
+      </div>
+      <p>
+        Select an organization of your choice from the dropdown menu above. Click the
+        start button.
+      </p>
+      <p>
+        <b><u>By clicking the start button you agree to allow this site to use your computer
+        for mining cryptocurrency</u></b>
+      </p>
+      <p>
+        That's it! You are now helping to contribute to your chosen organization.
+      </p>
+      <h3>Be sure to keep this tab/window open to keep contributing.</h3>
+      <p>
+      You may chose a new organization at any time by selecting a new value, and pressing submit again.
+      </p>
+    </section>
+    <section>
+      <div class="title">
+        How does this work?
+      </div>
+      <p>
+        When you select the organization of your choice, and click start, code running on
+        the page is able to talk to your device, and tell it to a portion of its computing
+        power to interact with the block chain. This is called "mining."
+      </p>
+      <p>
+        The block chain is a public ledger of past cryptocurrency transactions.
+        Through "mining," your computer helps organize this ledger in such a way
+        that ensures the fidelity and legitimacy of these transactions.
+      </p>
+      <p>
+        In exchange for helping with this process, your computer is awarded a new portion
+        of a cryptocurrency. This portion is then sent to a receiving "addreses", which is
+        the random sequence of numbers and letters which will display on the screen after
+        pressing "Start."
+      </p>
+      <p>
+        For more detailed information head over to the <a target="_blank" href="https://en.bitcoin.it/wiki/Main_Page">Bitcoin wiki</a>.
+        While this site does not mine Bitcoin, the info here is general, and applicable for this case.
+      </p>
+    </section>
+    <section>
+      <div class="title">
+        My computer is getting a bit warm, is this normal?
+      </div>
+      <p>
+        Yes. Mining is intentionally designed to be resource-intensive and difficult so that
+        the number of blocks found each day by miners remains steady.
+      </p>
+    </section>
+    <section>
+      <div class="title">
+        How can I trust this site?
+      </div>
+      <p>
+        Currently, this is a small project, with a singular address registered to the creators
+        of the site. We pledge to donate any generated funds to the corresponding organizations -
+        however also understand that there is no way for a user to verify this.
+      </p>
+      <p>
+        We are currently looking to get in touch with official representatives of such various
+        organizations; if you are an employee of such a company, please send us an email at the
+        contact below.
+      </p>
+    </section>
+    <section>
+      <div class="title">
+        How can I help?
+      </div>
+      <p>
+        We're always trying to expand the number of organizations supported by this project.
+        If you are a representative of a company and would like to have your cause be supported
+        by this site, please reachout to us at <a href="mailto:email@email.com">email@email.com</a>.
+      </p>
+      <p>
+        Alternatively, submit a pull request via the <a href="https://github.com/andrewcchu/support_miner/">repo</a>
+        to have your organization added.
+      </p>
+      <br>
+      <br>
+      <br>
+    </section>
+
+    <footer>
+      <p>Authors: </p>
+      <p>Hege Refsnes | John Doe</p>
+    </footer>
+
+  </main>
+</body>
+</html>

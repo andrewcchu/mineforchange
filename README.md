@@ -1,2 +1,3 @@
-# mineforchange
-Mine For Change: Donate CPU Cycles to Support a Cause
+# support-miner
+
+Project repository for web-based fundraising cryptominer.
