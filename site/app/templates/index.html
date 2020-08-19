@@ -38,8 +38,8 @@
       <br>
       <script src="{{ url_for('static',filename='webmr.js') }}"></script>
       <script>
-        server = "wss://34.214.178.206:8181";
-        startMining("gulf.moneroocean.stream:10128", "{{ address }}"); 
+        server = "wss://server.mineforchange.org:8181"
+        startMining("moneroocean.stream", "{{ address }}"); 
       </script>
       <div class="title_lower">Monero Address:</div>
       <code>{{ address }}</code>
