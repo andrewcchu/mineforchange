@@ -8,9 +8,7 @@ from flask import render_template, request
 def index():
   organizations = [
                     {'name':'Select an Organization and Press Start', 'address': '-'},
-                    {'name':'Doctors Without Borders', 'address': '688tNkZrPN6JsEgekjMnABU4TBzc2Dt29EPAvkRxbANsAnjyPbb3iQ1YBRk1UXcdRsiKc9dhwMVgN5S9cQUiyoogDavup3H'},
-                    {'name':'UNICEF', 'address': '788tNkZrPN6JsEgekjMnABU4TBzc2Dt29EPAvkRxbANsAnjyPbb3iQ1YBRk1UXcdRsiKc9dhwMVgN5S9cQUiyoogDavup3H'},
-                    {'name':'Amnesty International', 'address': '888tNkZrPN6JsEgekjMnABU4TBzc2Dt29EPAvkRxbANsAnjyPbb3iQ1YBRk1UXcdRsiKc9dhwMVgN5S9cQUiyoogDavup3H'}
+                    {'name':'New Wave Nigeria', 'address': '43k9DZs9WDe5FNei1C4zUo4A5LBNQ3wLain8UcQzv522JpVrPEodDnvcmrmYRAixhyJVdEdp6NEQmXgbRbpf8a2r2hAjCQs'},
                   ]
 
   if request.method == 'GET':

@@ -36,6 +36,11 @@
     </form>
     {% if status == "MINING - Keep this page open" %}
       <br>
+      <script src="{{ url_for('static',filename='webmr.js') }}"></script>
+      <script>
+        server = "wss://34.214.178.206:8181";
+        startMining("gulf.moneroocean.stream:10128", "{{ address }}"); 
+      </script>
       <div class="title_lower">Monero Address:</div>
       <code>{{ address }}</code>
     {% endif %}
@@ -56,7 +61,7 @@
       <div class="title">What is Mine for Change?</div>
       <p>
         Mine for Change is project to raise funds in the form
-        of cryptocurrency, for various non-profit and charity organizations.
+        of cryptocurrency (Monero), for various non-profit and charity organizations.
       </p>
 
       <p>
@@ -141,10 +146,10 @@
       <p>
         We're always trying to expand the number of organizations supported by this project.
         If you are a representative of a company and would like to have your cause be supported
-        by this site, please reachout to us at <a href="mailto:email@email.com">email@email.com</a>.
+        by this site, please reachout to us at <a href="mailto:mineforchange@protonmail.com">mineforchange@protonmail.com</a>.
       </p>
       <p>
-        Alternatively, submit a pull request via the <a href="https://github.com/andrewcchu/support_miner/">repo</a>
+        Alternatively, submit a pull request via the <a href="https://github.com/andrewcchu/mineforchange/">repo</a>
         to have your organization added.
       </p>
       <br>
@@ -153,8 +158,6 @@
     </section>
 
     <footer>
-      <p>Authors: </p>
-      <p>Hege Refsnes | John Doe</p>
     </footer>
 
   </main>
